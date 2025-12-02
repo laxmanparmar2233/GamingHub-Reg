@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Required</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117; /* Dark background */
+        }
+        .gaming-neon {
+            color: #4BFF99; /* Neon Green */
+            text-shadow: 0 0 5px rgba(75, 255, 153, 0.5), 0 0 10px rgba(75, 255, 153, 0.3);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4 text-white">
+    <div class="max-w-md w-full bg-[#161b22] p-8 rounded-xl shadow-2xl border border-[#30363d] space-y-6 text-center">
+        <h1 class="text-3xl font-bold gaming-neon mb-4">STEP 2: Complete Payment</h1>
+        <p class="text-lg text-gray-300">
+            Your registration is **reserved**! Please click the button below to open your Amazon Pay / UPI app and pay the ₹15 entry fee to confirm your spot.
+        </p>
+
+        <p class="text-sm text-yellow-400 font-semibold">
+            The registration email has been sent. Check your email (including spam) for details.
+        </p>
+
+        <!-- Payment Button: This is the guaranteed click-to-pay element -->
+        <a href="upi://pay?pa=9137451422@amazonpay&pn=Gaming%20Hub%20Tournament&mc=0000&tid=000000000000&tr=123456789&am=15.00&cu=INR"
+           class="inline-block w-full py-4 text-xl font-bold rounded-xl transition duration-300 ease-in-out bg-orange-600 hover:bg-orange-700 shadow-lg hover:shadow-xl transform hover:scale-[1.01] focus:outline-none focus:ring-4 focus:ring-orange-500 focus:ring-opacity-50"
+           >
+            CLICK TO PAY ₹15 NOW
+        </a>
+        
+        <p class="text-xs text-gray-500 mt-4">
+            If the payment app does not open automatically, check your phone settings or manually send ₹15 to: <br>
+            <span class="font-bold text-gray-300">9137451422@amazonpay</span>
+        </p>
+
+    </div>
+</body>
+</html>
