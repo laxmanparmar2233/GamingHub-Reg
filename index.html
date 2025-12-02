@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GamingHub Tournament Registration</title>
+    <title>GamingHub Tournament Registration & Payment</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Use Inter font -->
@@ -35,6 +35,13 @@
             border-color: #30363d;
             color: #ffffff;
         }
+        /* Style for the Payment VPA display */
+        .vpa-display {
+            background-color: #24292f;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+        }
     </style>
 </head>
 <body class="min-h-screen p-4 sm:p-8">
@@ -45,7 +52,7 @@
             <span class="gaming-neon">GAMINGHUB</span>.COM
         </h1>
         <p class="text-xl sm:text-2xl font-light text-gray-400">
-            Epic Battles Await. Register Now!
+            Registration & Automatic Payment Redirect
         </p>
     </header>
 
@@ -54,109 +61,93 @@
         <!-- Tournament Details Section -->
         <section class="mb-12">
             <h2 class="text-3xl font-bold mb-6 text-center gaming-neon border-b-2 border-[#00ff99] pb-2">
-                Tournament Formats & Prizes
+                Tournament Formats & Fees
             </h2>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 
-                <!-- 10-Player Showdown Card -->
+                <!-- Cards (Details are the same) -->
                 <div class="card-bg p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
                     <h3 class="text-2xl font-bold mb-3 text-red-400">10-Player Showdown</h3>
                     <p class="text-gray-300 mb-4">A high-stakes mini-tournament for individual glory.</p>
                     <ul class="space-y-2 text-gray-200">
                         <li class="flex justify-between">
                             <span class="font-semibold">Entry Fee:</span> 
-                            <span class="text-yellow-400">15 ? / Player</span>
+                            <span class="text-yellow-400 text-lg">₹ 15</span>
                         </li>
-                        <li class="flex justify-between">
-                            <span class="font-semibold">1st Prize:</span> 
-                            <span class="text-green-400">50 ?</span>
-                        </li>
-                        <li class="flex justify-between">
-                            <span class="font-semibold">2nd Prize:</span> 
-                            <span class="text-blue-400">30 ?</span>
-                        </li>
-                        <li class="flex justify-between">
-                            <span class="font-semibold">3rd Prize:</span> 
-                            <span class="text-purple-400">30 ?</span>
-                        </li>
+                        <li><span class="font-semibold">Prizes:</span> ₹50 (1st), ₹30 (2nd), ₹30 (3rd)</li>
                     </ul>
                 </div>
 
-                <!-- 5-Player Face-Off Card -->
                 <div class="card-bg p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
                     <h3 class="text-2xl font-bold mb-3 text-yellow-400">5-Player Face-Off</h3>
                     <p class="text-gray-300 mb-4">A fast-paced competition with fewer participants.</p>
                     <ul class="space-y-2 text-gray-200">
                         <li class="flex justify-between">
                             <span class="font-semibold">Entry Fee:</span> 
-                            <span class="text-yellow-400">15 ? / Player</span>
+                            <span class="text-yellow-400 text-lg">₹ 15</span>
                         </li>
-                        <li class="flex justify-between">
-                            <span class="font-semibold">1st Prize:</span> 
-                            <span class="text-green-400">30 ?</span>
-                        </li>
-                        <li class="flex justify-between">
-                            <span class="font-semibold">2nd Prize:</span> 
-                            <span class="text-blue-400">20 ?</span>
-                        </li>
+                        <li><span class="font-semibold">Prizes:</span> ₹30 (1st), ₹20 (2nd)</li>
                     </ul>
-                    <div class="pt-6"></div> <!-- Filler to align card heights -->
                 </div>
 
-                <!-- CS: 4 vs 4 Battle Card -->
                 <div class="card-bg p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
                     <h3 class="text-2xl font-bold mb-3 text-blue-400">CS: 4 vs 4 Battle</h3>
                     <p class="text-gray-300 mb-4">Team-based combat where every kill counts!</p>
                     <ul class="space-y-2 text-gray-200">
                         <li class="flex justify-between">
                             <span class="font-semibold">Entry Fee:</span> 
-                            <span class="text-yellow-400">15 ? / Player</span>
+                            <span class="text-yellow-400 text-lg">₹ 15</span>
                         </li>
-                        <li class="flex justify-between col-span-2">
-                            <span class="font-semibold">Prize Pool:</span> 
-                            <span class="text-green-400">3 ? per Kill</span>
-                        </li>
+                        <li><span class="font-semibold">Prize:</span> ₹3 per Kill</li>
                     </ul>
-                    <div class="pt-6"></div> <!-- Filler to align card heights -->
                 </div>
 
             </div>
         </section>
 
+
         <!-- Registration Form Section -->
         <section class="card-bg p-6 sm:p-8 rounded-xl shadow-xl">
             <h2 class="text-3xl font-bold mb-6 text-center text-white">
-                Register Your Spot
+                Register & Pay in One Click
             </h2>
+            <p class="text-red-400 text-center mb-6 font-semibold">
+                By clicking 'Confirm Registration', your details will be submitted, and you will be immediately redirected to your UPI app for payment.
+            </p>
 
-            <!-- 
-                !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                !!! CRITICAL STEP: YOU MUST CHANGE THE 'action' URL BELOW                  !!!
-                !!! This is a placeholder. Replace 'YOUR_FORMSPREE_ENDPOINT' with the      !!!
-                !!! actual unique link you get from Formspree (or similar service)         !!!
-                !!! to forward submissions to laxmancom2021@gmail.com.                     !!!
-                !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            -->
+            <!-- Display VPA for Reference -->
+            <div class="text-center mb-8">
+                <span class="text-gray-400 block mb-1">Payment UPI VPA:</span>
+                <span class="vpa-display text-yellow-400 font-mono text-xl font-bold">9137451422@amazonpay</span>
+            </div>
+            
+            <!-- REMINDER: REPLACE 'YOUR_FORMSPREE_ENDPOINT' WITH YOUR ACTUAL UNIQUE LINK -->
             <form id="registrationForm" 
-                  action="https://formspree.io/f/mnnevgbz" 
+                  action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" 
                   method="POST" 
                   class="space-y-6">
+                
+                <!-- Hidden field to redirect user to UPI payment link after Formspree sends email -->
+                <input type="hidden" id="redirect-url-input" name="_redirect" value="">
+                
+                <!-- Hidden fields for tracking payment method -->
+                <input type="hidden" name="Payment_Required" value="Yes_15_INR">
+                <input type="hidden" name="Payment_VPA" value="9137451422@amazonpay">
                 
                 <!-- Name Input -->
                 <div>
                     <label for="name" class="block text-sm font-medium text-gray-400 mb-1">Full Name (or Team Name)</label>
                     <input type="text" id="name" name="name" required
-                           class="input-style w-full p-3 rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150"
+                           class="input-style w-full p-3 rounded-lg border-2 focus:outline-none focus:ring-blue-500 transition duration-150"
                            placeholder="Enter your name or team name">
                 </div>
 
                 <!-- Email Input -->
                 <div>
-                    <label for="email" class="block text-sm font-medium text-gray-400 mb-1">Email Address (You will receive a confirmation here)</label>
-                    <!-- Formspree uses '_replyto' to set the reply-to address -->
+                    <label for="email" class="block text-sm font-medium text-gray-400 mb-1">Email Address (Confirmation)</label>
                     <input type="email" id="email" name="_replyto" required
-                           class="input-style w-full p-3 rounded-lg border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150"
+                           class="input-style w-full p-3 rounded-lg border-2 focus:outline-none focus:ring-blue-500 transition duration-150"
                            placeholder="Enter your email">
                 </div>
                 
@@ -166,19 +157,20 @@
                     <select id="tournament" name="Tournament_Type" required
                             class="input-style w-full p-3 rounded-lg border-2 appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150">
                         <option value="" disabled selected>Choose a tournament format...</option>
-                        <option value="10-player">10-Player Showdown (15 ?)</option>
-                        <option value="5-player">5-Player Face-Off (15 ?)</option>
-                        <option value="cs-4v4">CS: 4 vs 4 Battle (15 ? per Player)</option>
+                        <option value="10-player">10-Player Showdown (Fee: ₹15)</option>
+                        <option value="5-player">5-Player Face-Off (Fee: ₹15)</option>
+                        <option value="cs-4v4">CS: 4 vs 4 Battle (Fee: ₹15)</option>
                     </select>
                 </div>
-
-                <!-- A standard success message page will be shown by Formspree upon submission -->
 
                 <!-- Submit Button -->
                 <button type="submit"
                         class="btn-primary w-full text-white font-bold py-3 rounded-xl uppercase tracking-wider shadow-lg">
-                    Submit Registration
+                    Confirm Registration & Proceed to Pay (₹15)
                 </button>
+                <p class="text-xs text-gray-500 text-center mt-2">
+                    *After clicking, check your phone for the payment prompt.*
+                </p>
             </form>
         </section>
 
@@ -186,8 +178,24 @@
 
     <!-- Footer -->
     <footer class="text-center mt-12 py-4 text-gray-500 border-t border-gray-700 max-w-4xl mx-auto">
-        <p>&copy; 2024 GamingHub. All rights reserved. | Registration Date: Oct 26, 2024</p>
+        <p>&copy; 2024 GamingHub. All rights reserved. | Payment via Amazon Pay VPA</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const redirectUrlInput = document.getElementById('redirect-url-input');
+            const vpa = '9137451422@amazonpay';
+            const name = 'Laxman%20Parmar';
+            const amount = '15';
+
+            // UPI Deep Link Format: upi://pay?pa={VPA}&pn={PayeeName}&am={Amount}&cu=INR&tn={TransactionNote}
+            const upiLink = `upi://pay?pa=${vpa}&pn=${name}&am=${amount}&cu=INR&tn=GamingHub%20Tournament%20Fee`;
+            
+            // Set the Formspree redirect field to the UPI link. 
+            // Formspree will redirect the user here after the email is successfully sent.
+            redirectUrlInput.value = upiLink;
+        });
+    </script>
 
 </body>
 </html>
