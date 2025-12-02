@@ -43,7 +43,7 @@
         </header>
 
         <div class="bg-red-900/50 border border-red-700 p-4 rounded-xl text-white font-semibold text-center shadow-lg">
-            <p>Entry Fee: ₹15 per player, payable after registration submission.</p>
+            <p>Entry Fee: ₹15 per player, payable immediately after registration.</p>
         </div>
         
         <!-- Tournament Cards Section -->
@@ -74,15 +74,8 @@
         <section class="card-bg p-8 rounded-xl shadow-xl border border-[#30363d]">
             <h2 class="text-3xl font-bold text-white mb-6 gaming-neon">Player Registration</h2>
             
-            <!-- 
-                Form Action is set to Formspree, and the hidden "_redirect" field ensures 
-                the user is sent to the custom payment page after submission. 
-            -->
-            <form action="https://formspree.io/f/mnnevgbz" method="POST" class="space-y-6">
-                
-                <!-- REQUIRED: THIS IS YOUR REDIRECT FIELD -->
-                <!-- It must point to the public link of the new page you created -->
-                <input type="hidden" name="_redirect" value="https://laxmanparmar2233.github.io/GamingHub-Reg/payment_redirect.html">
+            <!-- The form is now handled by JavaScript -->
+            <form id="registrationForm" class="space-y-6">
                 
                 <div>
                     <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
@@ -104,7 +97,7 @@
                     </select>
                 </div>
                 
-                <button type="submit" 
+                <button type="submit" id="submitButton"
                         class="w-full py-3 text-lg font-bold rounded-xl bg-green-600 hover:bg-green-700 text-white transition duration-200 shadow-xl transform hover:scale-[1.01] focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50">
                     Confirm Registration & Proceed to Pay (₹15)
                 </button>
@@ -112,8 +105,70 @@
         </section>
 
         <footer class="text-center text-sm text-gray-500 pt-4">
-            <p>&copy; 2025 GamingHub. All rights reserved. | Registration details sent via Formspree.</p>
+            <p>&copy; 2025 GamingHub. All rights reserved. | Registration handled securely.</p>
         </footer>
     </div>
+
+    <script>
+        const form = document.getElementById('registrationForm');
+        const submitButton = document.getElementById('submitButton');
+
+        // Formspree endpoint URL (Must be YOUR actual hash)
+        const FORMSPREE_URL = 'https://formspree.io/f/mnnevgbz'; 
+        
+        // UPI Payment Link (This is what we will redirect to)
+        const UPI_LINK = 'upi://pay?pa=9137451422@amazonpay&pn=Gaming%20Hub%20Tournament&mc=0000&tid=000000000000&tr=123456789&am=15.00&cu=INR';
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault(); // Stop the default HTML submission
+
+            submitButton.textContent = 'Processing...';
+            submitButton.disabled = true;
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                // 1. Send data to Formspree using JavaScript fetch
+                // This happens in the background without navigating away from the page
+                const response = await fetch(FORMSPREE_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    console.log('Registration data sent to Formspree successfully.');
+                    
+                    // 2. GUARANTEED REDIRECT TO UPI LINK
+                    // This command forces the browser to open the UPI payment application
+                    window.location.href = UPI_LINK;
+                    
+                    // Fallback message if redirect is slow (mobile only)
+                    setTimeout(() => {
+                        submitButton.textContent = 'Payment App Should Be Open!';
+                    }, 500);
+
+                } else {
+                    // This runs if Formspree returns an error (e.g., hash problem)
+                    const errorData = await response.json();
+                    
+                    // Even on error, we try to launch the payment link as a service to the user
+                    window.location.href = UPI_LINK; 
+                }
+            } catch (error) {
+                // This handles a network error (e.g., user is offline)
+                alert('A network error occurred. Attempting to launch payment link anyway.');
+                console.error('Network Error:', error);
+
+                // Attempt to launch the payment link regardless of network status
+                window.location.href = UPI_LINK;
+            } finally {
+                // Do not re-enable the button; the browser will navigate away
+            }
+        });
+    </script>
 </body>
 </html>
