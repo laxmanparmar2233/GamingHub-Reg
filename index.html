@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming Tournament Registration & Payment</title>
+    <title>Gaming Tournament Registration</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -32,6 +32,26 @@
             border-color: #4BFF99;
             outline: none;
         }
+        .tournament-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .prize-detail {
+            font-weight: 600;
+            color: #FBBF24; /* Yellow for visibility */
+            display: block; /* Ensures it takes a new line for better separation */
+            padding-left: 1rem;
+            line-height: 1.5;
+        }
+        .fee-badge {
+            background-color: #10b981; /* Green color for fee */
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 700;
+        }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen p-4">
@@ -42,31 +62,61 @@
             <p class="text-xl text-gray-400">Secure Your Spot for the Ultimate Showdown!</p>
         </header>
 
-        <div class="bg-red-900/50 border border-red-700 p-4 rounded-xl text-white font-semibold text-center shadow-lg">
-            <p>Entry Fee: ₹15 per player, payable immediately after registration.</p>
+        <div class="bg-blue-900/50 border border-blue-700 p-4 rounded-xl text-white font-semibold text-center shadow-lg">
+            <p>Entry Fee is ₹15 per tournament. You will receive confirmation via email.</p>
         </div>
         
-        <!-- Tournament Cards Section -->
-        <section class="grid md:grid-cols-3 gap-6">
+        <!-- Tournament List Section (Enhanced Separated List) -->
+        <section class="card-bg p-6 rounded-xl shadow-lg border border-[#30363d] space-y-6">
+            
+            <h2 class="text-2xl font-bold text-white mb-4 gaming-neon">Available Tournaments</h2>
+
             <!-- Tournament 1 -->
-            <div class="card-bg p-6 rounded-xl shadow-lg border border-[#30363d]">
-                <h2 class="text-2xl font-bold text-white mb-3">10-Player Showdown</h2>
-                <p class="text-gray-400 mb-2">Prizes: ₹50 (1st) | ₹30 (2nd) | ₹30 (3rd)</p>
-                <p class="text-sm text-gray-500">Max players: 10. Fastest reaction time wins the day.</p>
+            <div class="p-4 rounded-lg bg-[#0d1117] border border-[#30363d] space-y-2">
+                <div class="tournament-item mb-1">
+                    <h3 class="text-xl font-bold text-white">1. 10-Player Showdown</h3>
+                    <div class="flex items-center space-x-3">
+                        <span class="fee-badge">₹15 Entry Fee</span>
+                        <span class="text-lg font-semibold text-yellow-400">Max 10 Players</span>
+                    </div>
+                </div>
+                <!-- Line-by-line prize details -->
+                <span class="text-gray-400 text-sm">Prizes:</span>
+                <span class="prize-detail">1st Prize: ₹50</span>
+                <span class="prize-detail">2nd Prize: ₹30</span>
+                <span class="prize-detail">3rd Prize: ₹30</span>
+                <p class="text-xs text-gray-500 mt-2">Fastest reaction time wins the day.</p>
             </div>
             
             <!-- Tournament 2 -->
-            <div class="card-bg p-6 rounded-xl shadow-lg border border-[#30363d]">
-                <h2 class="text-2xl font-bold text-white mb-3">5-Player Face-Off</h2>
-                <p class="text-gray-400 mb-2">Prizes: ₹30 (1st) | ₹20 (2nd)</p>
-                <p class="text-sm text-gray-500">Intense round-robin format. Prove your consistency.</p>
+            <div class="p-4 rounded-lg bg-[#0d1117] border border-[#30363d] space-y-2">
+                <div class="tournament-item mb-1">
+                    <h3 class="text-xl font-bold text-white">2. 5-Player Face-Off</h3>
+                    <div class="flex items-center space-x-3">
+                        <span class="fee-badge">₹15 Entry Fee</span>
+                        <span class="text-lg font-semibold text-yellow-400">Max 5 Players</span>
+                    </div>
+                </div>
+                <!-- Line-by-line prize details -->
+                <span class="text-gray-400 text-sm">Prizes:</span>
+                <span class="prize-detail">1st Prize: ₹30</span>
+                <span class="prize-detail">2nd Prize: ₹20</span>
+                <p class="text-xs text-gray-500 mt-2">Intense round-robin format. Prove your consistency.</p>
             </div>
 
             <!-- Tournament 3 -->
-            <div class="card-bg p-6 rounded-xl shadow-lg border border-[#30363d]">
-                <h2 class="text-2xl font-bold text-white mb-3">CS: 4 vs 4 Battle</h2>
-                <p class="text-gray-400 mb-2">Prizes: ₹3 per Kill</p>
-                <p class="text-sm text-gray-500">Team elimination game. Aim for the highest kill count.</p>
+            <div class="p-4 rounded-lg bg-[#0d1117] border border-[#30363d] space-y-2">
+                <div class="tournament-item mb-1">
+                    <h3 class="text-xl font-bold text-white">3. CS: 4 vs 4 Battle</h3>
+                    <div class="flex items-center space-x-3">
+                        <span class="fee-badge">₹15 Entry Fee</span>
+                        <span class="text-lg font-semibold text-yellow-400">8 Players Total</span>
+                    </div>
+                </div>
+                 <!-- Line-by-line prize details -->
+                <span class="text-gray-400 text-sm">Prizes:</span>
+                <span class="prize-detail">₹3 per Kill</span>
+                <p class="text-xs text-gray-500 mt-2">Team elimination game. Aim for the highest kill count.</p>
             </div>
         </section>
 
@@ -74,8 +124,8 @@
         <section class="card-bg p-8 rounded-xl shadow-xl border border-[#30363d]">
             <h2 class="text-3xl font-bold text-white mb-6 gaming-neon">Player Registration</h2>
             
-            <!-- The form is now handled by JavaScript -->
-            <form id="registrationForm" class="space-y-6">
+            <!-- ACTION: Uses simple HTML form submission -->
+            <form action="https://formspree.io/f/mnnevgbz" method="POST" class="space-y-6">
                 
                 <div>
                     <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
@@ -85,21 +135,23 @@
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email Address</label>
                     <input type="email" id="email" name="Email" required class="input-style" placeholder="example@gmail.com">
+                    <!-- Special Formspree field to set the reply-to address -->
+                    <input type="hidden" name="_replyto" id="_replyto" value="email">
                 </div>
 
                 <div>
                     <label for="tournament" class="block text-sm font-medium text-gray-300 mb-2">Select Tournament</label>
                     <select id="tournament" name="Tournament Selected" required class="input-style appearance-none cursor-pointer">
                         <option value="" disabled selected>Choose a tournament...</option>
-                        <option value="10-Player Showdown (₹15)">10-Player Showdown (₹15)</option>
-                        <option value="5-Player Face-Off (₹15)">5-Player Face-Off (₹15)</option>
-                        <option value="CS: 4 vs 4 Battle (₹15)">CS: 4 vs 4 Battle (₹15)</option>
+                        <option value="10-Player Showdown (₹15)">10-Player Showdown (₹15 Entry)</option>
+                        <option value="5-Player Face-Off (₹15)">5-Player Face-Off (₹15 Entry)</option>
+                        <option value="CS: 4 vs 4 Battle (₹15)">CS: 4 vs 4 Battle (₹15 Entry)</option>
                     </select>
                 </div>
                 
-                <button type="submit" id="submitButton"
-                        class="w-full py-3 text-lg font-bold rounded-xl bg-green-600 hover:bg-green-700 text-white transition duration-200 shadow-xl transform hover:scale-[1.01] focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50">
-                    Confirm Registration & Proceed to Pay (₹15)
+                <button type="submit" 
+                        class="w-full py-3 text-lg font-bold rounded-xl bg-blue-600 hover:bg-blue-700 text-white transition duration-200 shadow-xl transform hover:scale-[1.01] focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
+                    Confirm Registration
                 </button>
             </form>
         </section>
@@ -108,68 +160,5 @@
             <p>&copy; 2025 GamingHub. All rights reserved. | Registration handled securely.</p>
         </footer>
     </div>
-
-    <script>
-        const form = document.getElementById('registrationForm');
-        const submitButton = document.getElementById('submitButton');
-
-        // Formspree endpoint URL (Must be YOUR actual hash)
-        const FORMSPREE_URL = 'https://formspree.io/f/mnnevgbz'; 
-        
-        // UPI Payment Link (This is what we will redirect to)
-        const UPI_LINK = 'upi://pay?pa=laxmancom2021@okicici&pn=Gaming%20Hub%20Tournament&mc=0000&tid=000000000000&tr=123456789&am=15.00&cu=INR';
-
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault(); // Stop the default HTML submission
-
-            submitButton.textContent = 'Processing...';
-            submitButton.disabled = true;
-
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
-
-            try {
-                // 1. Send data to Formspree using JavaScript fetch
-                // This happens in the background without navigating away from the page
-                const response = await fetch(FORMSPREE_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                });
-
-                if (response.ok) {
-                    console.log('Registration data sent to Formspree successfully.');
-                    
-                    // 2. GUARANTEED REDIRECT TO UPI LINK
-                    // This command forces the browser to open the UPI payment application
-                    window.location.href = UPI_LINK;
-                    
-                    // Fallback message if redirect is slow (mobile only)
-                    setTimeout(() => {
-                        submitButton.textContent = 'Payment App Should Be Open!';
-                    }, 500);
-
-                } else {
-                    // This runs if Formspree returns an error (e.g., hash problem)
-                    const errorData = await response.json();
-                    
-                    // Even on error, we try to launch the payment link as a service to the user
-                    window.location.href = UPI_LINK; 
-                }
-            } catch (error) {
-                // This handles a network error (e.g., user is offline)
-                alert('A network error occurred. Attempting to launch payment link anyway.');
-                console.error('Network Error:', error);
-
-                // Attempt to launch the payment link regardless of network status
-                window.location.href = UPI_LINK;
-            } finally {
-                // Do not re-enable the button; the browser will navigate away
-            }
-        });
-    </script>
 </body>
 </html>
-
